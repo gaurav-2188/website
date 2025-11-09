@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+header {
+    background: #007bff;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+    color: #ff6b6b;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.toggle-btn:hover {
+    transform: rotate(360deg);
+    background: #0056b3;
+}
+
+section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-grid, .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    opacity: 0.9;
+}
+
+.skill-bar {
+    background: #ddd;
+    height: 20px;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar::after {
+    content: attr(data-skill);
+    position: absolute;
+    left: 10px;
+    top: 0;
+    line-height: 20px;
+    color: white;
+    font-size: 12px;
+}
+
+.skill-bar::before {
+    content: '';
+    background: linear-gradient(90deg, #007bff, #00d4ff);
+    height: 100%;
+    width: 0%;
+    transition: width 2s ease-in-out;
+}
+
+.hover-scale {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Dark mode */
+body.dark {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark header {
+    background: #333;
+}
+
+body.dark .skill-bar {
+    background: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
